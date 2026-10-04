@@ -1,0 +1,11 @@
+.app-layout { display: flex; min-height: 100vh; background: #f5f7fa; }
+.app-main { min-width: 0; flex: 1; }
+.button-plus { position: relative; display: inline-block; width: 12px; height: 12px; }
+.button-plus::before, .button-plus::after { position: absolute; top: 50%; left: 50%; width: 11px; height: 1.5px; border-radius: 2px; background: currentColor; content: ""; transform: translate(-50%,-50%); }
+.button-plus::after { transform: translate(-50%,-50%) rotate(90deg); }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+.section-heading h2 { margin: 0; font: 700 1rem "Manrope", sans-serif; }
+.section-heading p { margin: 5px 0 0; color: var(--muted); font-size: .78rem; }
+.text-link { color: #2874dc; text-decoration: none; font-size: .76rem; font-weight: 700; white-space: nowrap; }
+.text-link:hover { color: #154ea5; }
+@media(max-width: 760px) { .app-layout { display: block; } }

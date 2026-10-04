@@ -1,0 +1,17 @@
+.notification-panel { max-width: 900px; padding: 0; overflow: hidden; }
+.notification-filters { display: flex; gap: 19px; padding: 0 20px; border-bottom: 1px solid #edf0f4; }
+.notification-filters button { display: flex; align-items: center; gap: 7px; padding: 15px 1px 13px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: #8591a2; font-size: .77rem; font-weight: 700; cursor: pointer; }
+.notification-filters button.active { color: #286fce; border-color: #347fe8; }
+.notification-filters button span { min-width: 18px; padding: 2px 5px; border-radius: 10px; background: #eff3f8; color: #61738e; text-align: center; font-size: .64rem; }
+.notification-list { display: grid; }
+.notification-item { display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #eff2f6; }
+.notification-item:last-child { border-bottom: 0; }
+.notification-item.is-unread { background: #fbfdff; }
+.notification-icon { display: grid; width: 36px; height: 36px; flex: 0 0 auto; place-items: center; border-radius: 10px; color: #377ad2; background: #eaf2ff; }
+.notification-icon::before { content: attr(data-symbol); }
+.notification-copy { min-width: 0; flex: 1; }
+.notification-copy p { margin: 0; color: #54647a; font-size: .78rem; line-height: 1.5; }
+.notification-copy strong { color: #2d405b; }
+.notification-copy time { display: block; margin-top: 5px; color: #96a1af; font-size: .66rem; }
+.notification-unread { width: 7px; height: 7px; flex: 0 0 auto; margin-top: 7px; border-radius: 50%; background: #4287ed; }
+.notification-empty { padding: 40px 20px; color: var(--muted); text-align: center; font-size: .82rem; }

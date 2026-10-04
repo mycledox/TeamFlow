@@ -1,0 +1,23 @@
+.settings-tabs { display: flex; gap: 22px; margin: -5px 0 17px; border-bottom: 1px solid #e2e8f0; }
+.settings-tabs a { padding: 0 1px 11px; color: #8290a2; text-decoration: none; font-size: .78rem; font-weight: 700; }
+.settings-tabs a.active { color: #286fce; border-bottom: 2px solid #347fe8; }
+.settings-form { display: grid; max-width: 850px; gap: 14px; }
+.settings-section { padding: 21px; }
+.settings-section-heading { margin-bottom: 18px; }
+.settings-section-heading p { margin: 5px 0 0; color: var(--muted); font-size: .77rem; }
+.profile-preview { display: flex; align-items: center; gap: 12px; margin-bottom: 19px; padding: 13px; border-radius: 10px; background: #f7f9fc; }
+.profile-preview > div { display: grid; gap: 4px; }
+.profile-preview strong { color: #35465f; font-size: .82rem; }
+.profile-preview > div > span { color: #8a97a8; font-size: .7rem; }
+.avatar-large { width: 46px; height: 46px; font-size: .9rem; }
+.settings-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+.toggle-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px 0; border-top: 1px solid #eff2f5; cursor: pointer; }
+.toggle-row > span { display: grid; gap: 4px; }
+.toggle-row strong { color: #45566e; font-size: .78rem; }
+.toggle-row small { color: #8996a6; font-size: .7rem; }
+.toggle-row input { position: relative; width: 39px; height: 22px; flex: 0 0 auto; appearance: none; border-radius: 14px; background: #cbd4df; cursor: pointer; transition: background .15s; }
+.toggle-row input::before { position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; content: ""; transition: transform .15s; }
+.toggle-row input:checked { background: #3481e9; }.toggle-row input:checked::before { transform: translateX(17px); }
+.settings-footer { display: flex; align-items: center; justify-content: flex-end; gap: 14px; }
+.settings-footer .form-message { margin-right: auto; }
+@media(max-width: 600px) { .settings-fields { grid-template-columns: 1fr; }.settings-section { padding: 16px; }.settings-tabs { gap: 16px; } }

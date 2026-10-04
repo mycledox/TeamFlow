@@ -1,0 +1,21 @@
+.calendar-layout { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(260px,.7fr); align-items: start; gap: 15px; }
+.calendar-toolbar { display: flex; align-items: center; gap: 9px; margin-bottom: 18px; }
+.calendar-toolbar h2 { min-width: 150px; margin: 0 auto 0 4px; color: #2a3d58; font: 700 1rem "Manrope",sans-serif; }
+.calendar-today { min-height: 34px; padding-inline: 11px; font-size: .72rem; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); }
+.calendar-weekday { padding: 8px 3px 11px; color: #8996a7; text-align: center; font-size: .67rem; font-weight: 700; text-transform: uppercase; }
+.calendar-day { position: relative; display: flex; min-height: 81px; flex-direction: column; gap: 5px; padding: 7px 5px; border-top: 1px solid #edf0f4; border-right: 1px solid #f0f2f6; color: #465872; font-size: .72rem; }
+.calendar-day:nth-child(7n) { border-right: 0; }
+.calendar-day.is-outside { color: #b8c0cc; background: #fbfcfd; }
+.calendar-day.is-today > span:first-child { display: grid; width: 23px; height: 23px; place-items: center; border-radius: 50%; color: #fff; background: var(--blue); font-weight: 700; }
+.calendar-event { overflow: hidden; padding: 4px 5px; border-radius: 4px; color: #2565b7; background: #eaf2ff; font-size: .61rem; text-overflow: ellipsis; white-space: nowrap; }
+.calendar-event.in-progress { color: #9e6b18; background: #fff2de; }.calendar-event.done { color: #21805c; background: #e9f7f0; }
+.agenda-list { display: grid; gap: 10px; margin-top: 13px; }
+.agenda-item { display: flex; align-items: flex-start; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid #edf0f4; }
+.agenda-item:last-child { border: 0; padding-bottom: 0; }
+.agenda-date { min-width: 39px; padding: 6px 4px; border-radius: 7px; color: #3474c9; background: #eef5ff; text-align: center; font-size: .62rem; font-weight: 700; }
+.agenda-copy { min-width: 0; }
+.agenda-copy strong { display: block; color: #3f5069; font-size: .73rem; }
+.agenda-copy span { display: block; margin-top: 4px; color: #8995a5; font-size: .65rem; }
+@media(max-width: 900px) { .calendar-layout { grid-template-columns: 1fr; } }
+@media(max-width: 560px) { .calendar-panel { padding: 11px; }.calendar-day { min-height: 65px; padding: 5px 3px; }.calendar-event { font-size: .55rem; }.calendar-weekday { font-size: .58rem; }.calendar-toolbar h2 { min-width: 110px; }.calendar-today { min-height: 31px; padding-inline: 8px; } }

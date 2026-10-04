@@ -1,0 +1,25 @@
+.breadcrumbs { display: flex; align-items: center; gap: 8px; margin: -4px 0 17px; color: #99a4b2; font-size: .76rem; }
+.breadcrumbs a { color: #477dc6; text-decoration: none; }
+.details-heading { align-items: center; margin-bottom: 18px; }
+.details-heading h1 { margin-top: 5px; }
+.details-heading p { max-width: 680px; }
+.project-kicker { color: #6380a4; font-size: .64rem; font-weight: 800; letter-spacing: .13em; }
+.detail-tabs { display: flex; gap: 22px; overflow-x: auto; margin-bottom: 17px; border-bottom: 1px solid #e2e8f0; }
+.detail-tabs a { display: inline-flex; align-items: center; gap: 5px; padding: 0 1px 11px; color: #8290a2; text-decoration: none; font-size: .78rem; font-weight: 700; white-space: nowrap; }
+.detail-tabs a.active { color: #286fce; border-bottom: 2px solid #347fe8; }
+.detail-tabs a span { padding: 2px 6px; border-radius: 10px; background: #edf2f8; font-size: .64rem; }
+.detail-stats { display: grid; grid-template-columns: minmax(0,1.25fr) minmax(250px,.75fr); gap: 14px; }
+.detail-progress .section-heading { margin-bottom: 18px; }
+.detail-progress .section-heading strong { color: #3677d4; font: 800 1.35rem "Manrope",sans-serif; }
+.detail-progress .progress-track { height: 9px; }
+.progress-legend { display: flex; justify-content: space-between; gap: 8px; margin-top: 10px; color: #8290a1; font-size: .68rem; }
+.detail-team .section-heading { margin-bottom: 13px; }
+.project-members { display: flex; flex-wrap: wrap; gap: 8px; }
+.project-member { display: inline-flex; align-items: center; gap: 7px; padding: 5px 8px 5px 5px; border: 1px solid #edf0f5; border-radius: 999px; color: #596b83; font-size: .7rem; }
+.detail-task-panel { margin-top: 15px; }
+.detail-task-panel > .section-heading { margin-bottom: 14px; }
+.task-filter { width: auto; min-width: 132px; min-height: 36px; font-size: .75rem; }
+.status-select { min-height: 30px; padding: 5px 8px; border: 1px solid #e3e8f0; border-radius: 7px; background: white; color: #54647a; font-size: .71rem; }
+.row-delete { border: 0; background: transparent; color: #c76a6a; font-size: .7rem; cursor: pointer; }
+@media(max-width: 850px) { .detail-stats { grid-template-columns: 1fr; } }
+@media(max-width: 560px) { .details-heading { align-items: flex-start; }.details-heading .button { white-space: nowrap; }.detail-tabs { gap: 16px; }.detail-task-panel { padding: 13px; } }

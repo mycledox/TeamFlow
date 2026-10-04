@@ -1,0 +1,50 @@
+:host { display: block; position: sticky; z-index: 30; top: 0; width: 244px; height: 100vh; flex: 0 0 244px; color: #e7eef9; background: var(--navy-deep, #0c2445); transition: width .2s ease, flex-basis .2s ease, transform .2s ease; }
+.sidebar { display: flex; height: 100%; flex-direction: column; padding: 17px 13px 13px; overflow-y: auto; }
+.sidebar-head { display: flex; align-items: center; gap: 10px; padding: 0 8px 20px; }
+.sidebar-head .brand { color: #fff; font-size: 1.15rem; }
+.workspace { display: flex; align-items: center; gap: 9px; margin-bottom: 21px; padding: 10px 9px; border: 1px solid #ffffff12; border-radius: 10px; background: #ffffff0d; }
+.workspace-icon { display: grid; width: 31px; height: 31px; flex: 0 0 auto; place-items: center; border-radius: 9px; background: linear-gradient(145deg, #8dbaff, #5c78e8); color: #fff; font-weight: 800; }
+.workspace-copy { min-width: 0; flex: 1; }
+.workspace-copy strong, .workspace-copy span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.workspace-copy strong { color: #f1f5fb; font-size: .76rem; }
+.workspace-copy span { margin-top: 3px; color: #a9bad1; font-size: .67rem; }
+.workspace-caret { color: #9eafc8; font-size: .8rem; }
+.side-label { padding: 13px 10px 7px; color: #91a3be; font-size: .63rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.side-label.team-label { display: flex; justify-content: space-between; }
+.side-nav { display: grid; gap: 3px; }
+.side-link { display: flex; min-height: 39px; align-items: center; gap: 12px; padding: 0 10px; border-radius: 8px; color: #c4d0e1; text-decoration: none; font-size: .79rem; transition: color .15s, background .15s; }
+.side-link:hover, .side-link.active { color: #fff; background: #ffffff14; }
+.side-link.active { box-shadow: inset 2px 0 #70a0ff; }
+.side-icon { display: grid; width: 18px; flex: 0 0 18px; place-items: center; color: #aebfda; }
+.side-icon::before { content: attr(data-symbol); font-size: .96rem; }
+.side-link.active .side-icon { color: #a8c5ff; }
+.side-count { min-width: 19px; margin-left: auto; padding: 2px 5px; border-radius: 6px; background: #ffffff17; color: #dbe6f5; text-align: center; font-size: .65rem; }
+.side-plus { border: 0; background: none; color: #b7c5d8; font-size: 1.05rem; cursor: pointer; }
+.sidebar-bottom { margin-top: auto; padding-top: 12px; }
+.sidebar-divider { margin: 8px 3px 11px; border-top: 1px solid #ffffff1b; }
+.account { display: flex; align-items: center; gap: 9px; padding: 9px 5px 3px; }
+.account .avatar { width: 33px; height: 33px; border: 2px solid #fff; }
+.account-info { min-width: 0; flex: 1; }
+.account-info strong, .account-info span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.account-info strong { color: #fff; font-size: .76rem; }
+.account-info span { margin-top: 3px; color: #aab9ce; font-size: .65rem; }
+.collapse-mark { color: #adbdd3; }
+.sidebar-backdrop { display: none; }
+:host([collapsed]) { width: 72px; flex-basis: 72px; }
+:host([collapsed]) .sidebar-head { justify-content: center; padding-inline: 0; }
+:host([collapsed]) .sidebar-head .brand > span:last-child, :host([collapsed]) .workspace-copy, :host([collapsed]) .workspace-caret, :host([collapsed]) .side-label, :host([collapsed]) .side-link .side-label-text, :host([collapsed]) .side-count, :host([collapsed]) .account-info, :host([collapsed]) .collapse-mark, :host([collapsed]) .side-plus { display: none; }
+:host([collapsed]) .workspace, :host([collapsed]) .side-link, :host([collapsed]) .account { justify-content: center; padding-inline: 0; }
+:host([collapsed]) .side-link { min-height: 42px; }
+:host([collapsed]) .side-icon { font-size: 1rem; }
+@media(max-width: 760px) {
+  :host { position: fixed; left: 0; width: 244px; flex-basis: 244px; transform: translateX(-100%); box-shadow: 12px 0 35px #0b1b3030; }
+  :host([mobile-open]) { transform: translateX(0); }
+  :host([collapsed]) { width: 244px; flex-basis: 244px; }
+  :host([collapsed]) .sidebar-head { justify-content: flex-start; padding: 0 8px 20px; }
+  :host([collapsed]) .sidebar-head .brand > span:last-child, :host([collapsed]) .workspace-copy, :host([collapsed]) .workspace-caret, :host([collapsed]) .side-label, :host([collapsed]) .side-link .side-label-text, :host([collapsed]) .side-count, :host([collapsed]) .account-info, :host([collapsed]) .collapse-mark, :host([collapsed]) .side-plus { display: revert; }
+  :host([collapsed]) .workspace { justify-content: flex-start; padding-inline: 9px; }
+  :host([collapsed]) .side-link { justify-content: flex-start; padding-inline: 10px; }
+  :host([collapsed]) .account { justify-content: flex-start; padding-inline: 5px; }
+  .sidebar-backdrop { position: fixed; z-index: -1; inset: 0; display: none; background: #12243b75; }
+  :host([mobile-open]) .sidebar-backdrop { display: block; }
+}

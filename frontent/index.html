@@ -3,127 +3,52 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f5f7fb">
-    <meta name="description" content="A clear, collaborative workspace for projects, tasks and teams.">
+    <meta name="theme-color" content="#f5f8fc">
+    <meta name="description" content="Bring your projects, tasks and team together with TeamFlow.">
     <title>TeamFlow — Work better, together</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashbord.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <script defer src="js/api.js"></script>
-    <script defer src="js/auth.js"></script>
-    <script defer src="js/project.js"></script>
-    <script defer src="js/task.js"></script>
-    <script defer src="js/dashbord.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/pages/landing.css">
   </head>
-  <body>
-    <div class="app-shell">
-      <aside class="sidebar" id="sidebar" aria-label="Main navigation">
-        <a class="brand" href="index.html" aria-label="TeamFlow home">
-          <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm0 2c-2.8 0-6 1.4-6 3.5V19h12v-2.5C14 14.4 10.8 13 8 13Zm8 0c-.4 0-.8 0-1.2.1 1.3.9 2.2 2.1 2.2 3.4V19h5v-2.5c0-2.1-3.2-3.5-6-3.5Z"/></svg></span>
-          <span>Team<span class="brand-light">Flow</span></span>
-        </a>
-        <button class="workspace-picker" id="workspace-picker" type="button" aria-label="Select workspace">
-          <span class="workspace-avatar">T</span><span class="workspace-copy"><strong>TeamFlow Studio</strong><small>Free workspace</small></span><span class="chevron">⌄</span>
-        </button>
-        <p class="nav-label">WORKSPACE</p>
-        <nav class="primary-nav">
-          <button class="nav-link" data-page="overview" type="button"><span class="nav-icon">◫</span> Overview</button>
-          <button class="nav-link" data-page="projects" type="button"><span class="nav-icon">▦</span> My projects <span class="nav-count" id="project-nav-count"></span></button>
-          <button class="nav-link" data-page="tasks" type="button"><span class="nav-icon">☷</span> My tasks <span class="nav-count" id="task-nav-count"></span></button>
-          <button class="nav-link" data-page="planner" type="button"><span class="nav-icon">✦</span> AI task planner</button>
-        </nav>
-        <div class="sidebar-section-heading"><p class="nav-label">YOUR TEAM</p><button class="icon-button sidebar-add" id="invite-shortcut" aria-label="Invite a teammate" type="button">+</button></div>
-        <nav class="primary-nav">
-          <button class="nav-link" data-page="team" type="button"><span class="nav-icon">♧</span> Team members</button>
-          <button class="nav-link" data-page="activity" type="button"><span class="nav-icon">◷</span> Activity</button>
-        </nav>
-        <div class="sidebar-bottom">
-          <div class="upgrade-card"><span class="upgrade-sparkle">✦</span><strong>Make teamwork flow</strong><p>Bring every project and conversation together.</p><button type="button" id="upgrade-button">Explore plans <span>→</span></button></div>
-          <button class="profile-button" id="profile-menu" type="button" aria-label="Open profile menu"><span class="avatar avatar-blue">S</span><span class="profile-copy"><strong>Sonu Kumar</strong><small>Workspace admin</small></span><span class="profile-more">···</span></button>
+  <body class="landing-page">
+    <header class="landing-nav">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>TeamFlow</span></a>
+      <button class="landing-menu-button" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
+      <nav class="landing-links" aria-label="Main navigation">
+        <a href="#features">Features</a><a href="#how-it-works">How it works</a><a href="pages/team.html">About</a>
+      </nav>
+      <div class="landing-actions"><a class="button button-quiet" href="pages/login.html">Log in</a><a class="button button-primary" href="pages/register.html">Get started</a></div>
+    </header>
+
+    <main>
+      <section class="hero wrap">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="status-dot"></span> Project together. Achieve more.</span>
+          <h1>Manage your projects,<br><span>tasks and team</span> — all in one place</h1>
+          <p>TeamFlow helps you collaborate, assign tasks, track progress, and achieve your goals faster. Built better for teams who do more.</p>
+          <div class="hero-actions"><a class="button button-primary" href="pages/register.html">Get started free <span class="arrow-icon" aria-hidden="true"></span></a><a class="button button-outline" href="#how-it-works"><span class="play-icon" aria-hidden="true"></span> Watch demo</a></div>
+          <p class="hero-note">Free forever for small teams. No credit card required.</p>
         </div>
-      </aside>
-
-      <main class="main-area">
-        <header class="topbar">
-          <button class="icon-button mobile-menu-button" id="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
-          <div class="breadcrumbs"><span>Workspace</span><span class="breadcrumb-separator">/</span><strong id="breadcrumb-current">Overview</strong></div>
-          <label class="global-search"><span aria-hidden="true">⌕</span><input id="global-search" type="search" placeholder="Search projects, tasks..." autocomplete="off"><kbd>⌘ K</kbd></label>
-          <div class="topbar-actions">
-            <button class="icon-button notification-button" id="notification-button" type="button" aria-label="Notifications"><span>♧</span><i></i></button>
-            <span class="topbar-divider"></span>
-            <button class="topbar-user" id="topbar-user" type="button" aria-label="User profile"><span class="avatar avatar-blue">S</span><span class="user-caret">⌄</span></button>
-          </div>
-        </header>
-
-        <div class="page-content">
-          <section class="welcome-row">
-            <div><p class="eyebrow" id="today-label"></p><h1 id="page-title">Good morning, Sonu <span class="wave">✦</span></h1><p class="page-subtitle" id="page-subtitle">Here’s what’s happening with your team today.</p></div>
-            <button class="button button-primary" id="create-project-button" type="button"><span>＋</span> Create project</button>
-          </section>
-
-          <section class="stats-grid" aria-label="Workspace statistics">
-            <article class="stat-card"><span class="stat-icon stat-purple">▦</span><div class="stat-details"><span>Active projects</span><strong id="stat-projects">0</strong><small><span class="stat-dot dot-purple"></span> Across your workspace</small></div><span class="stat-arrow">↗</span></article>
-            <article class="stat-card"><span class="stat-icon stat-green">✓</span><div class="stat-details"><span>Tasks completed</span><strong id="stat-completed">0</strong><small><span class="stat-dot dot-green"></span> Nice work, team!</small></div><span class="stat-arrow">↗</span></article>
-            <article class="stat-card"><span class="stat-icon stat-blue">◷</span><div class="stat-details"><span>In progress</span><strong id="stat-progress">0</strong><small><span class="stat-dot dot-blue"></span> Tasks being worked on</small></div><span class="stat-arrow">↗</span></article>
-            <article class="stat-card"><span class="stat-icon stat-orange">⚑</span><div class="stat-details"><span>Open tasks</span><strong id="stat-open">0</strong><small><span class="stat-dot dot-orange"></span> Ready to get started</small></div><span class="stat-arrow">↗</span></article>
-          </section>
-
-          <section class="section-block" id="projects-section">
-            <div class="section-heading"><div><p class="section-kicker">YOUR WORKSPACE</p><h2 id="projects-heading">Recent projects <span class="section-count" id="project-count-label"></span></h2></div><button class="text-button" data-page-link="projects" type="button">View all projects <span>→</span></button></div>
-            <div class="project-grid" id="project-grid"></div>
-          </section>
-
-          <section class="lower-grid">
-            <div class="section-block task-section" id="tasks-section">
-              <div class="section-heading"><div><p class="section-kicker">STAY ON TRACK</p><h2 id="tasks-heading">Your tasks <span class="section-count" id="task-count-label"></span></h2></div><button class="text-button" data-page-link="tasks" type="button">View all <span>→</span></button></div>
-              <div class="task-toolbar"><div class="filter-tabs" id="task-filters" role="group" aria-label="Filter tasks"><button class="filter-tab is-active" data-filter="all" type="button">All</button><button class="filter-tab" data-filter="todo" type="button">To do</button><button class="filter-tab" data-filter="in-progress" type="button">In progress</button><button class="filter-tab" data-filter="completed" type="button">Done</button></div><button class="icon-button add-task-icon" id="create-task-button" type="button" aria-label="Create task">＋</button></div>
-              <div class="task-list" id="task-list"></div>
-            </div>
-            <aside class="section-block team-section" id="team-section">
-              <div class="section-heading"><div><p class="section-kicker">THE PEOPLE BEHIND IT</p><h2>Team members <span class="section-count" id="team-count-label"></span></h2></div><button class="icon-button add-member-button" id="invite-button" type="button" aria-label="Add team member">＋</button></div>
-              <div class="team-list" id="team-list"></div>
-              <button class="invite-link" id="invite-link" type="button"><span>＋</span> Invite someone to your team</button>
-            </aside>
-          </section>
-
-          <section class="page-view project-detail-view" id="project-detail-view" hidden>
-            <button class="back-link" data-page-link="projects" type="button">← <span>Back to projects</span></button>
-            <div class="detail-title-row"><div><p class="section-kicker">PROJECT WORKSPACE</p><h2 id="detail-project-name"></h2><p class="page-subtitle" id="detail-project-description"></p></div><button class="button button-primary" id="detail-create-task" type="button"><span>＋</span> Add task</button></div>
-            <div class="detail-summary" id="detail-project-summary"></div>
-            <div class="detail-tabs" role="tablist" aria-label="Project sections"><button type="button" data-project-tab="board" class="detail-tab is-active" role="tab" aria-selected="true">Board</button><button type="button" data-project-tab="files" class="detail-tab" role="tab" aria-selected="false">Files &amp; comments</button><button type="button" data-project-tab="about" class="detail-tab" role="tab" aria-selected="false">About</button></div>
-            <div class="project-board" id="project-board" role="tabpanel"></div>
-            <div class="project-files-view" id="project-files-view" hidden><div class="files-panel"><div class="section-heading"><div><p class="section-kicker">SHARED RESOURCES</p><h2>Project files</h2></div><span class="files-count">Shared with your team</span></div><div class="file-list" id="project-file-list"></div></div><div class="files-panel"><div class="section-heading"><div><p class="section-kicker">KEEP EVERYONE IN THE LOOP</p><h2>Project comments</h2></div></div><form class="comment-form" id="project-comment-form"><textarea name="comment" maxlength="300" rows="2" placeholder="Share an update with your team…" required></textarea><button class="button button-primary" type="submit">Post update <span>→</span></button></form><div class="comment-list" id="project-comment-list"></div></div></div>
-            <div class="project-about-view" id="project-about-view" hidden></div>
-          </section>
-
-          <section class="page-view task-detail-view" id="task-detail-view" hidden>
-            <button class="back-link" id="task-detail-back" data-page-link="tasks" type="button">← <span>Back to tasks</span></button>
-            <div class="task-detail-layout"><article class="task-detail-main"><p class="section-kicker">TASK DETAILS</p><div class="task-detail-heading"><input class="task-detail-complete" id="detail-task-complete" type="checkbox" aria-label="Mark task complete"><h2 id="detail-task-title"></h2></div><p class="task-detail-project" id="detail-task-project"></p><p class="task-detail-description" id="detail-task-description"></p><div class="task-meta-grid" id="detail-task-meta"></div><div class="files-panel task-attachments"><div class="section-heading"><div><p class="section-kicker">PROJECT RESOURCES</p><h2>Attachments</h2></div><span class="files-count" id="task-attachment-count"></span></div><div id="task-attachment-list"></div><p class="attachment-note">Files shared by your project team appear here.</p></div></article><aside class="task-comments-panel"><p class="section-kicker">TEAM CONVERSATION</p><h2>Comments</h2><div class="comment-list" id="task-comment-list"></div><form class="comment-form" id="task-comment-form"><textarea name="comment" maxlength="300" rows="3" placeholder="Write a comment…" required></textarea><button class="button button-primary" type="submit">Send comment <span>→</span></button></form></aside></div>
-          </section>
-
-          <section class="page-view planner-view" id="planner-view" hidden>
-            <div class="planner-hero"><span class="planner-sparkle">✦</span><p class="section-kicker">PLAN WITH CLARITY</p><h2>Your next best steps, mapped out.</h2><p>Choose a project to get a practical, editable task breakdown for your team.</p></div>
-            <form class="planner-form" id="planner-form"><label class="form-field">Project<select id="planner-project-select" name="projectId"></select></label><label class="form-field">What would you like to plan?<textarea name="goal" rows="3" maxlength="250" placeholder="e.g. Prepare our product launch for next month"></textarea></label><button class="button button-primary" type="submit">✦ Generate a plan <span>→</span></button></form>
-            <div class="planner-results" id="planner-results" hidden></div>
-            <p class="planner-disclaimer">This on-device demo creates a suggested plan from your project. No AI service or external account is connected.</p>
-          </section>
-
-          <section class="page-view activity-view" id="activity-view" hidden><div class="section-heading"><div><p class="section-kicker">A LITTLE PROGRESS, EVERY DAY</p><h2>Recent team activity</h2></div></div><div class="activity-list" id="activity-list"></div></section>
-
-          <footer class="page-footer"><span>Made for teams that make things happen.</span><span>TeamFlow <span id="current-year"></span></span></footer>
+        <div class="hero-art" aria-label="Team collaborating on a project dashboard">
+          <div class="art-window"><div class="art-top"><i></i><i></i><i></i><span>Team workspace</span></div><div class="art-board"><div class="art-sidebar"></div><div class="art-content"><div class="art-heading"></div><div class="art-row"><b></b><i></i></div><div class="art-row"><b></b><i></i></div><div class="art-row"><b></b><i></i></div><div class="art-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+          <div class="art-person person-one"><span></span><i></i></div><div class="art-person person-two"><span></span><i></i></div><div class="art-plant"><i></i><i></i><i></i></div><div class="art-float float-one">On track</div><div class="art-float float-two">+12 tasks done</div>
         </div>
-      </main>
-      <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
-    </div>
+      </section>
 
-    <dialog class="app-dialog" id="project-dialog" aria-labelledby="project-dialog-title"><form id="project-form"><div class="dialog-heading"><div><p class="section-kicker">NEW WORKSPACE</p><h2 id="project-dialog-title">Create a project</h2><p>Give your team a shared space to make progress.</p></div><button class="dialog-close icon-button" type="button" data-close-dialog aria-label="Close">×</button></div><label class="form-field">Project name<input name="name" required maxlength="60" placeholder="e.g. Website redesign"></label><label class="form-field">Short description<textarea name="description" maxlength="180" rows="3" placeholder="What is this project about?"></textarea></label><label class="form-field">Project color<select name="color"><option value="purple">Orchid</option><option value="blue">Ocean</option><option value="green">Mint</option><option value="orange">Peach</option><option value="pink">Rose</option></select></label><div class="dialog-actions"><button class="button button-quiet" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Create project <span>→</span></button></div></form></dialog>
+      <section class="feature-strip wrap" id="features" aria-label="TeamFlow features">
+        <article><span class="feature-icon projects-icon" aria-hidden="true"></span><h2>Manage projects</h2><p>Organize projects and create meaningful goals.</p></article>
+        <article><span class="feature-icon tasks-icon" aria-hidden="true"></span><h2>Assign tasks</h2><p>Delegate work and keep the whole team aligned.</p></article>
+        <article><span class="feature-icon progress-icon" aria-hidden="true"></span><h2>Track progress</h2><p>See what is moving and what needs attention.</p></article>
+        <article><span class="feature-icon team-icon" aria-hidden="true"></span><h2>Work together</h2><p>Keep conversations and work in one place.</p></article>
+      </section>
 
-    <dialog class="app-dialog" id="task-dialog" aria-labelledby="task-dialog-title"><form id="task-form"><div class="dialog-heading"><div><p class="section-kicker">KEEP THE MOMENTUM</p><h2 id="task-dialog-title">Create a task</h2><p>Make the next step clear for everyone.</p></div><button class="dialog-close icon-button" type="button" data-close-dialog aria-label="Close">×</button></div><label class="form-field">Task name<input name="title" required maxlength="80" placeholder="What needs to get done?"></label><label class="form-field">Project<select name="projectId" id="task-project-select"></select></label><div class="form-row"><label class="form-field">Assignee<select name="assignee" id="task-assignee-select"></select></label><label class="form-field">Due date<input type="date" name="dueDate"></label></div><label class="form-field">Priority<select name="priority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select></label><div class="dialog-actions"><button class="button button-quiet" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Create task <span>→</span></button></div></form></dialog>
-    <dialog class="app-dialog invite-dialog" id="invite-dialog" aria-labelledby="invite-dialog-title"><form id="invite-form"><div class="dialog-heading"><div><p class="section-kicker">BETTER, TOGETHER</p><h2 id="invite-dialog-title">Invite a teammate</h2><p>Add someone to your workspace team.</p></div><button class="dialog-close icon-button" type="button" data-close-dialog aria-label="Close">×</button></div><label class="form-field">Name<input name="name" required maxlength="60" placeholder="Teammate’s name"></label><label class="form-field">Email address<input name="email" required type="email" placeholder="name@company.com"></label><label class="form-field">Role<select name="role"><option>Member</option><option>Admin</option><option>Designer</option><option>Developer</option></select></label><div class="dialog-actions"><button class="button button-quiet" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Add to team <span>→</span></button></div></form></dialog>
-    <dialog class="app-dialog comment-dialog" id="comment-dialog" aria-labelledby="comment-dialog-title"><form id="comment-form"><div class="dialog-heading"><div><p class="section-kicker">PROJECT CONVERSATION</p><h2 id="comment-dialog-title">Share an update</h2><p>Leave a note for everyone working on this project.</p></div><button class="dialog-close icon-button" type="button" data-close-dialog aria-label="Close">×</button></div><label class="form-field">Your update<textarea name="comment" maxlength="300" rows="4" required placeholder="What should your team know?"></textarea></label><div class="dialog-actions"><button class="button button-quiet" type="button" data-close-dialog>Cancel</button><button class="button button-primary" type="submit">Post update <span>→</span></button></div></form></dialog>
-    <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+      <section class="how-section wrap" id="how-it-works">
+        <div class="section-intro"><span class="eyebrow">A simpler way to work</span><h2>How it works</h2><p>From first idea to final delivery, keep your team moving in the same direction.</p></div>
+        <div class="steps-grid"><article><span class="step-number">01</span><h3>Create an account</h3><p>Set up your workspace in moments.</p></article><article><span class="step-number">02</span><h3>Invite your team</h3><p>Bring everyone into one shared space.</p></article><article><span class="step-number">03</span><h3>Manage projects</h3><p>Plan, assign and track the work.</p></article><article><span class="step-number">04</span><h3>Track and complete</h3><p>Celebrate progress and ship together.</p></article></div>
+      </section>
+
+      <section class="landing-cta"><div class="wrap cta-inner"><div><h2>Ready to build something great together?</h2><p>Join teams who bring their best work to TeamFlow.</p></div><a class="button button-light" href="pages/register.html">Get started free <span class="arrow-icon" aria-hidden="true"></span></a></div></section>
+    </main>
+    <footer class="landing-footer wrap"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>TeamFlow</span></a><span>Plan well. Work together. Make progress.</span><span>© <span data-current-year></span> TeamFlow</span></footer>
+    <script src="js/landing.js"></script>
   </body>
 </html>
