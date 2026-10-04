@@ -89,7 +89,11 @@ button { color: inherit; }
 .segmented button[aria-pressed="true"] { color: var(--blue-dark); background: #fff; box-shadow: 0 1px 5px #1d355012; }
 .icon-button { display: inline-grid; width: 36px; height: 36px; flex: 0 0 auto; place-items: center; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--ink-soft); cursor: pointer; }
 .icon-button:hover { background: #f6f9fe; }
-.icon-button::before { content: attr(data-symbol); font-size: 1rem; line-height: 1; }
+.icon-button::before { font-size: 1rem; line-height: 1; }
+.icon-button[data-icon="add"]::before { content: "+"; }
+.icon-button[data-icon="close"]::before { content: "×"; }
+.icon-button[data-icon="previous"]::before { content: "‹"; }
+.icon-button[data-icon="next"]::before { content: "›"; }
 .notice { padding: 12px 14px; border-radius: 8px; background: #edf8f2; color: #1c7958; font-size: .84rem; }
 .modal-backdrop { position: fixed; z-index: 1000; inset: 0; display: grid; place-items: center; padding: 18px; background: #10233b80; }
 .modal { width: min(480px, 100%); max-height: min(90vh, 720px); overflow: auto; padding: 22px; border-radius: 16px; background: #fff; box-shadow: 0 24px 80px #101e3540; }

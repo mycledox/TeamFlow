@@ -6,4 +6,5 @@
 .task-table td:first-child { color: #34445c; font-weight: 700; }
 .task-table input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--blue); cursor: pointer; }
 .task-table tr.is-done td:first-child { color: #98a2b0; text-decoration: line-through; }
+@media(max-width: 850px) { .toolbar { align-items: flex-start; flex-wrap: wrap; }.task-project-filter { width: 100%; } }
 @media(max-width: 600px) { .task-filters { width: 100%; overflow: auto; }.task-filters button { padding: 6px 8px; white-space: nowrap; }.task-project-filter { width: 100%; } }

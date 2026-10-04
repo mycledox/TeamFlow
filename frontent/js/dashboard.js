@@ -52,11 +52,7 @@
   document.addEventListener("change", (event) => {
     const taskId = event.target.dataset.dashboardComplete;
     if (!taskId || !event.target.checked) return;
-    const task = state.tasks.find((item) => item.id === taskId);
-    if (!task) return;
-    task.status = "done";
-    api.save();
-    render();
+    api.run(api.updateTask(taskId, { status: "done" }), "Task completed.");
   });
   window.addEventListener("teamflow:statechange", render);
   window.addEventListener("teamflow:tasks-updated", render);

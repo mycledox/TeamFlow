@@ -36,8 +36,7 @@
   document.addEventListener("change", (event) => {
     const projectId = event.target.dataset.projectStatus;
     if (!projectId) return;
-    const item = api.project(projectId);
-    if (item) { item.status = event.target.value; api.save(); render(); }
+    api.run(api.updateProject(projectId, { status: event.target.value }), "Project updated.");
   });
   window.addEventListener("teamflow:statechange", render);
   window.addEventListener("teamflow:projects-updated", render);

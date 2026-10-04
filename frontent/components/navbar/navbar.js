@@ -1,11 +1,11 @@
 (function () {
-  const root = location.pathname.includes("/pages/") ? ".." : ".";
+  const root = location.pathname.toLowerCase().includes("/pages/") ? ".." : ".";
 
   class TeamNavbar extends HTMLElement {
     connectedCallback() {
       if (this.shadowRoot) return;
       const shadow = this.attachShadow({ mode: "open" });
-      shadow.innerHTML = `<link rel="stylesheet" href="${root}/css/components/navbar.css"><header class="navbar"><button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"></button><label class="nav-search"><span class="sr-only">Search TeamFlow</span><input type="search" placeholder="Search projects, tasks..." autocomplete="off"></label><div class="search-results" hidden></div><span class="nav-spacer"></span><a class="nav-action" href="${root}/pages/notifications.html" data-symbol="♧" aria-label="Notifications"><span class="nav-dot"></span></a><div class="nav-profile"><span class="avatar" data-user-initial>S</span><button class="nav-name" type="button" data-user-name>Sonu Kumar</button><span class="nav-chevron" aria-hidden="true">⌄</span></div></header>`;
+      shadow.innerHTML = `<link rel="stylesheet" href="${root}/css/components/navbar.css"><header class="navbar"><button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"></button><label class="nav-search"><span class="sr-only">Search TeamFlow</span><input type="search" placeholder="Search projects, tasks..." autocomplete="off"></label><div class="search-results" hidden></div><span class="nav-spacer"></span><a class="nav-action" href="${root}/pages/notifications.html" data-icon="notifications" aria-label="Notifications"><span class="nav-dot"></span></a><div class="nav-profile"><span class="avatar" data-user-initial>S</span><button class="nav-name" type="button" data-user-name>Sonu Kumar</button><span class="nav-chevron" aria-hidden="true">⌄</span></div></header>`;
       const menuButton = shadow.querySelector(".menu-toggle");
       menuButton.addEventListener("click", () => {
         const sidebar = document.querySelector("team-sidebar");
@@ -17,6 +17,7 @@
           menuButton.setAttribute("aria-expanded", String(!sidebar.hasAttribute("collapsed")));
         }
       });
+      document.addEventListener("teamflow:sidebar-closed", () => menuButton.setAttribute("aria-expanded", "false"));
       const search = shadow.querySelector("input");
       const results = shadow.querySelector(".search-results");
       search.addEventListener("input", () => {

@@ -46,8 +46,8 @@
 
   filter.addEventListener("change", render);
   document.addEventListener("change", (event) => {
-    const task = state.tasks.find((item) => item.id === event.target.dataset.taskStatus);
-    if (task) { task.status = event.target.value; api.save(); render(); }
+    const taskId = event.target.dataset.taskStatus;
+    if (taskId) api.run(api.updateTask(taskId, { status: event.target.value }), "Task updated.");
   });
   window.addEventListener("teamflow:statechange", render);
   window.addEventListener("teamflow:tasks-updated", render);

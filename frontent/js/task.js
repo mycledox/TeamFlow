@@ -38,11 +38,10 @@
   document.addEventListener("change", (event) => {
     const taskId = event.target.dataset.taskStatus || event.target.dataset.taskComplete;
     if (!taskId) return;
-    const task = state.tasks.find((item) => item.id === taskId);
+    const task = api.getState().tasks.find((item) => item.id === taskId);
     if (!task) return;
-    task.status = event.target.dataset.taskComplete ? event.target.checked ? "done" : "todo" : event.target.value;
-    api.save();
-    render();
+    const status = event.target.dataset.taskComplete ? event.target.checked ? "done" : "todo" : event.target.value;
+    api.run(api.updateTask(taskId, { status }), "Task updated.");
   });
   window.addEventListener("teamflow:statechange", render);
   window.addEventListener("teamflow:tasks-updated", render);

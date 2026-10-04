@@ -1,4 +1,6 @@
 :host { display: block; position: sticky; z-index: 20; top: 0; height: 68px; flex: 0 0 68px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; clip-path: inset(50%); }
+.avatar { display: inline-grid; width: 33px; height: 33px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #fff; background: linear-gradient(135deg,#6ba7ff,#725de0); font-size: .72rem; font-weight: 800; }
 .navbar { display: flex; height: 68px; align-items: center; gap: 20px; padding: 0 clamp(16px, 2.4vw, 34px); border-bottom: 1px solid var(--line, #e6ebf2); background: rgba(255,255,255,.94); backdrop-filter: blur(12px); }
 .menu-toggle { display: inline-grid; width: 36px; height: 36px; flex: 0 0 auto; place-items: center; border: 0; border-radius: 8px; background: transparent; color: #62728b; cursor: pointer; }
 .menu-toggle::before { content: ""; width: 17px; height: 12px; border-top: 2px solid currentColor; border-bottom: 2px solid currentColor; background: linear-gradient(currentColor,currentColor) center/100% 2px no-repeat; }
@@ -8,7 +10,7 @@
 .nav-search input::placeholder { color: #9aa5b6; }
 .nav-spacer { flex: 1; }
 .nav-action { position: relative; display: inline-grid; width: 36px; height: 36px; place-items: center; border: 0; border-radius: 9px; background: transparent; color: #64758d; cursor: pointer; }
-.nav-action::before { content: attr(data-symbol); font-size: 1.13rem; }
+.nav-action::before { content: "♧"; font-size: 1.13rem; }
 .nav-dot { position: absolute; top: 6px; right: 7px; width: 7px; height: 7px; border: 1.5px solid white; border-radius: 50%; background: #ec6767; }
 .nav-profile { display: flex; align-items: center; gap: 9px; padding-left: 13px; border-left: 1px solid #e9edf2; }
 .nav-profile button { border: 0; background: none; cursor: pointer; }

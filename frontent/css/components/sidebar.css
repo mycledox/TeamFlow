@@ -1,4 +1,8 @@
 :host { display: block; position: sticky; z-index: 30; top: 0; width: 244px; height: 100vh; flex: 0 0 244px; color: #e7eef9; background: var(--navy-deep, #0c2445); transition: width .2s ease, flex-basis .2s ease, transform .2s ease; }
+.brand { display: inline-flex; align-items: center; gap: 9px; color: #fff; text-decoration: none; font: 800 1.15rem "Manrope","Segoe UI",sans-serif; letter-spacing: -.055em; }
+.brand-mark { display: inline-grid; width: 30px; height: 30px; place-items: center; border-radius: 10px; background: linear-gradient(145deg,#48a0ff,#1867dd); }
+.brand-mark::before { width: 14px; height: 10px; content: ""; background: #fff; clip-path: polygon(0 12%,100% 0,83% 100%,55% 62%,32% 90%); }
+.avatar { display: inline-grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #fff; background: linear-gradient(135deg,#6ba7ff,#725de0); font-size: .72rem; font-weight: 800; }
 .sidebar { display: flex; height: 100%; flex-direction: column; padding: 17px 13px 13px; overflow-y: auto; }
 .sidebar-head { display: flex; align-items: center; gap: 10px; padding: 0 8px 20px; }
 .sidebar-head .brand { color: #fff; font-size: 1.15rem; }
@@ -16,7 +20,14 @@
 .side-link:hover, .side-link.active { color: #fff; background: #ffffff14; }
 .side-link.active { box-shadow: inset 2px 0 #70a0ff; }
 .side-icon { display: grid; width: 18px; flex: 0 0 18px; place-items: center; color: #aebfda; }
-.side-icon::before { content: attr(data-symbol); font-size: .96rem; }
+.side-icon::before { font-size: .96rem; }
+.side-icon[data-icon="home"]::before { content: "⌂"; }
+.side-icon[data-icon="projects"]::before, .side-icon[data-icon="calendar"]::before { content: "▦"; }
+.side-icon[data-icon="tasks"]::before { content: "☷"; }
+.side-icon[data-icon="team"]::before { content: "♧"; }
+.side-icon[data-icon="notifications"]::before { content: "◉"; }
+.side-icon[data-icon="settings"]::before { content: "⚙"; }
+.side-icon[data-icon="activity"]::before { content: "◷"; }
 .side-link.active .side-icon { color: #a8c5ff; }
 .side-count { min-width: 19px; margin-left: auto; padding: 2px 5px; border-radius: 6px; background: #ffffff17; color: #dbe6f5; text-align: center; font-size: .65rem; }
 .side-plus { border: 0; background: none; color: #b7c5d8; font-size: 1.05rem; cursor: pointer; }

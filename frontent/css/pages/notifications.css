@@ -8,7 +8,9 @@
 .notification-item:last-child { border-bottom: 0; }
 .notification-item.is-unread { background: #fbfdff; }
 .notification-icon { display: grid; width: 36px; height: 36px; flex: 0 0 auto; place-items: center; border-radius: 10px; color: #377ad2; background: #eaf2ff; }
-.notification-icon::before { content: attr(data-symbol); }
+.notification-icon[data-kind="task"]::before, .notification-icon[data-kind="complete"]::before { content: "✓"; }
+.notification-icon[data-kind="project"]::before { content: "▦"; }
+.notification-icon[data-kind="member"]::before { content: "+"; }
 .notification-copy { min-width: 0; flex: 1; }
 .notification-copy p { margin: 0; color: #54647a; font-size: .78rem; line-height: 1.5; }
 .notification-copy strong { color: #2d405b; }
