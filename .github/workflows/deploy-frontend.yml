@@ -26,10 +26,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+     - name: Check repository
+        run: |
+          pwd
+          echo "Repository contents:"
+          ls -la
+          echo "Frontend contents:"
+          ls -la frontend
+
       - name: Prepare frontend
         run: |
           mkdir -p _site
-          cp -r frontend/. _site/
+          cp -r ./frontend/* ./_site/
 
       - name: Upload frontend
         uses: actions/upload-pages-artifact@v3
