@@ -54,7 +54,7 @@
   }
 
   let state = loadState();
-  const API_BASE = String(window.TEAMFLOW_API_URL || "http://localhost:8080/api").replace(/\/$/, "");
+  const API_BASE = String(window.TEAMFLOW_API_URL || "https://teamflow-iot3.onrender.com/api").replace(/\/$/, "");
   let apiReady = false;
   let activeTeamId = null;
   let currentUserId = null;
