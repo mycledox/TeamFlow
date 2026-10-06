@@ -34,12 +34,12 @@ jobs:
           echo "Frontend contents:"
           ls -la frontend
 
-      - name: Prepare frontend
+      - name: Prepare frontent
         run: |
           mkdir -p _site
           cp -r ./frontend/* ./_site/
 
-      - name: Upload frontend
+      - name: Upload frontent
         uses: actions/upload-pages-artifact@v3
         with:
           path: './_site'
