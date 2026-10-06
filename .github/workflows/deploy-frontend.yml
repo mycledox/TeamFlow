@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -26,23 +25,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-     - name: Check repository
-        run: |
-          pwd
-          echo "Repository contents:"
-          ls -la
-          echo "Frontend contents:"
-          ls -la frontend
-
-      - name: Prepare frontent
-        run: |
-          mkdir -p _site
-          cp -r ./frontend/* ./_site/
-
       - name: Upload frontent
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './_site'
+          path: ./frontent
 
       - name: Deploy to GitHub Pages
         id: deployment
